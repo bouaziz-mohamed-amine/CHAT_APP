@@ -5,7 +5,21 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+  TabController _tabController ;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+  }
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -26,17 +40,40 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor:Colors.transparent ,
             leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: (){}),
             actions: [IconButton(icon: Icon(Icons.menu), onPressed: (){}),IconButton(icon: Icon(Icons.search), onPressed: (){}),],
-            title: Text("CHAT_APP"),
+            title: Text("MESSAGES",style: TextStyle(fontWeight:FontWeight.bold,letterSpacing: 1.2 ),),
             centerTitle: true,
+            bottom: TabBar(
+                unselectedLabelColor: Color(0xFFf76aa4),
+                indicator: BoxDecoration(),        //indicatorColor: Colors.transparent,
+
+                controller: _tabController,
+                tabs: [
+                  Tab(text: 'INBOX',),
+                  Tab(text: 'GROUPS',),
+                  Tab(text: 'ONLINE(25)',),
+                  Tab(text: 'HISTORY',),
+
+                ]),
           ),
-          body: _bodycontent(),
+          body: TabBarView(
+              controller: _tabController,
+              children: [
+                _bodycontent(),
+                _bodycontent(),
+                _bodycontent(),
+                _bodycontent(),
+              ]),
         ),
       ],
     );
   }
 
 Widget  _bodycontent() {
-    return Container();
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: Colors.transparent,
+    );
 }
 }
 class chart  extends CustomPainter{
