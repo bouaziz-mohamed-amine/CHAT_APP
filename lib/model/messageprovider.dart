@@ -59,12 +59,12 @@ class MessageProvider {
 
   static List<Conversion> getConversations() {
     User user1 = User(
-        name: 'Ahmad Alsodani',
-        avatar: 'assets/shared/ahmad.png',
+        name: 'Amine Bouaziz',
+        avatar: 'assets/shared/amine.jpg',
         phone: '0877-3323-6723');
     User user2 = User(
-        name: 'Elise Remmi',
-        avatar: 'assets/shared/ahmad.png',
+        name: 'omaima',
+        avatar: 'assets/shared/amine.jpg',
         phone: '0877-3323-6723');
     return [
       Conversion(users: [
