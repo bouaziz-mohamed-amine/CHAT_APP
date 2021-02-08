@@ -30,40 +30,55 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           height: double.infinity,
           color: Colors.white,
         ),
+        Positioned(
+            bottom: 0,right: 0,left: 0,
+            child: Container(
+              width: double.infinity,height: MediaQuery.of(context).size.height*0.1,
+              decoration: BoxDecoration(
+                  color: Colors.pinkAccent,
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(25),topLeft:Radius.circular(25) )),
+            )
+        ),
         CustomPaint(
           painter: chart(),
           child: Container(),
         ),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor:Colors.transparent ,
-            leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: (){}),
-            actions: [IconButton(icon: Icon(Icons.menu), onPressed: (){}),IconButton(icon: Icon(Icons.search), onPressed: (){}),],
-            title: Text("MESSAGES",style: TextStyle(fontWeight:FontWeight.bold,letterSpacing: 1.2 ),),
-            centerTitle: true,
-            bottom: TabBar(
-                unselectedLabelColor: Color(0xFFf76aa4),
-                indicator: BoxDecoration(),        //indicatorColor: Colors.transparent,
+        Positioned(
+          top: 0,
+          bottom: MediaQuery.of(context).size.height*0.05,
+          left: 0 ,
+          right: 0,
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor:Colors.transparent ,
+              leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: (){}),
+              actions: [IconButton(icon: Icon(Icons.menu), onPressed: (){}),IconButton(icon: Icon(Icons.search), onPressed: (){}),],
+              title: Text("MESSAGES",style: TextStyle(fontWeight:FontWeight.bold,letterSpacing: 1.2 ),),
+              centerTitle: true,
+              bottom: TabBar(
+                  unselectedLabelColor: Color(0xFFf76aa4),
+                  indicator: BoxDecoration(),        //indicatorColor: Colors.transparent,
 
+                  controller: _tabController,
+                  tabs: [
+                    Tab(text: 'INBOX',),
+                    Tab(text: 'GROUPS',),
+                    Tab(text: 'ONLINE(25)',),
+                    Tab(text: 'HISTORY',),
+
+                  ]),
+            ),
+            body: TabBarView(
                 controller: _tabController,
-                tabs: [
-                  Tab(text: 'INBOX',),
-                  Tab(text: 'GROUPS',),
-                  Tab(text: 'ONLINE(25)',),
-                  Tab(text: 'HISTORY',),
-
+                children: [
+                  ConversationList(),
+                  ConversationList(),
+                  ConversationList(),
+                  ConversationList(),
                 ]),
           ),
-          body: TabBarView(
-              controller: _tabController,
-              children: [
-                ConversationList(),
-                ConversationList(),
-                ConversationList(),
-                ConversationList(),
-              ]),
         ),
       ],
     );
