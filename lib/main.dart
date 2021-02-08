@@ -1,6 +1,10 @@
+import 'package:chat_app/model/messageprovider.dart';
 import 'package:flutter/material.dart';
 
 import 'chat_1/homepage.dart';
+import 'chat_2/chat2.dart';
+
+
 
 void main() {
   runApp(MyApp());
@@ -19,7 +23,12 @@ class MyApp extends StatelessWidget {
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: PageView(
+        children: [
+          MyHomePage(),
+          Chat2(MessageProvider.getConversation(),'Amine Bouaziz'),
+        ],
+      ),
     );
   }
 }

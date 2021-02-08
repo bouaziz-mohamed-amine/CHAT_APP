@@ -7,12 +7,12 @@ class MessageProvider {
 
   static Conversion getConversation(){
     User user1 = User(
-        name: 'Ahmad Alsodani',
-        avatar: 'assets/shared/ahmad.png',
+        name: 'Amine Bouaziz',
+        avatar: 'assets/shared/amine.jpg',
         phone: '0877-3323-6723');
     User user2 = User(
-        name: 'Elise Remmi',
-        avatar: 'assets/shared/ahmad.png',
+        name: 'salma',
+        avatar: 'assets/shared/nba.jpg',
         phone: '0877-3323-6723');
     return Conversion(users: [
       user1,
@@ -22,37 +22,37 @@ class MessageProvider {
         sender: user1,
         receiver: user2,
         dateTime: '23:35',
-        body: 'Hi there how are you',
+        body: 'Hi salma how are you',
       ),
       Message(
         sender: user2,
         receiver: user1,
         dateTime: '23:35',
-        body: 'Hi there how are you',
+        body: 'Hi my brother i am fine and you ?',
       ),
       Message(
         sender: user1,
         receiver: user2,
         dateTime: '23:35',
-        body: 'Hi there how are you',
+        body: 'fine thanks what are you doing?',
       ),
       Message(
         sender: user2,
         receiver: user1,
         dateTime: '23:35',
-        body: 'Hi there how are you',
+        body: 'i am doing my home work ',
       ),
       Message(
         sender: user1,
         receiver: user2,
         dateTime: '23:35',
-        body: 'Hi there how are you',
+        body: 'oh oh ',
       ),
       Message(
         sender: user1,
         receiver: user2,
         dateTime: '23:35',
-        body: 'Hi there how are you',
+        body: 'good bye',
       ),
     ]);
   }
@@ -78,8 +78,8 @@ class MessageProvider {
           body: 'Hi there how are you',
         ),
         Message(
-          sender: user1,
-          receiver: user2,
+          sender: user2,
+          receiver: user1,
           dateTime: '23:35',
           body: 'Hi there how are you',
         ),
@@ -90,8 +90,8 @@ class MessageProvider {
           body: 'Hi there how are you',
         ),
         Message(
-          sender: user1,
-          receiver: user2,
+          sender: user2,
+          receiver: user1,
           dateTime: '23:35',
           body: 'Hi there how are you',
         ),
