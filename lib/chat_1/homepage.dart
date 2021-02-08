@@ -1,3 +1,4 @@
+import 'package:chat_app/chat_1/tabs/inbox.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -58,23 +59,17 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           body: TabBarView(
               controller: _tabController,
               children: [
-                _bodycontent(),
-                _bodycontent(),
-                _bodycontent(),
-                _bodycontent(),
+                ConversationList(),
+                ConversationList(),
+                ConversationList(),
+                ConversationList(),
               ]),
         ),
       ],
     );
   }
 
-Widget  _bodycontent() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.transparent,
-    );
-}
+
 }
 class chart  extends CustomPainter{
   @override
